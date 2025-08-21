@@ -1,3 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antivirus Simulation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+
+    <div class="max-w-6xl mx-auto bg-[#161b22] rounded-xl shadow-lg border border-[#30363d] overflow-hidden">
+        
+        <!-- Header -->
+        <header class="p-6 sm:p-8 border-b border-[#30363d] flex items-center justify-between">
+            <h1 class="text-xl sm:text-2xl font-bold flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+                    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.23c2.9.3 6-1.5 6-5.5a4.2 4.2 0 0 0-.8-2.14 4.54 4.54 0 0 0-.46-1.28c-.98-.44-2.8-1.55-5.22-1.55a12.7 12.7 0 0 0-6.13 1.55c-.2.53-.29 1.1-.29 1.63a4.2 4.2 0 0 0-.8 2.15c0 4 3.1 5.8 6 5.5a4.8 4.8 0 0 0-1 3.23v4"></path>
+                    <path d="M12 2a10 10 0 0 0-3.23 19.5c.5.12 1-.22 1-.74V17c-2.43.52-2.92-1.12-3.26-1.63a1.5 1.5 0 0 0-1.84-.7c-.85.34-1.39.99-1.39 1.61a3 3 0 0 0 .54 1.76c.4.4.92.74 1.52.92a7.3 7.3 0 0 0 3.23.64c.5 0 1-.2 1.5-.64a4.8 4.8 0 0 0 1 3.23z"></path>
+                </svg>
+                Advanced Antivirus Simulation
+            </h1>
+            <a href="#" class="text-blue-400 hover:text-blue-500 font-medium">Clone or download</a>
+        </header>
+
+        <!-- Main Content -->
+        <main class="p-6 sm:p-8">
+            <h2 class="text-2xl sm:text-3xl font-semibold mb-4 text-white">How to Install and Run</h2>
+            <div class="mb-8 p-4 bg-[#23272d] rounded-lg">
+                <ol class="list-decimal list-inside space-y-4 text-gray-300 leading-relaxed">
+                    <li>
+                        <strong class="text-white">Save the code:</strong> Copy the entire Python script below and save it to a file named <code class="bg-[#30363d] text-yellow-300 rounded-md px-1 py-0.5">antivirus_simulation.py</code> on your computer.
+                    </li>
+                    <li>
+                        <strong class="text-white">Open your terminal or command prompt:</strong> Navigate to the directory where you saved the file.
+                    </li>
+                    <li>
+                        <strong class="text-white">Install the dependencies:</strong> This script requires the <code class="bg-[#30363d] text-yellow-300 rounded-md px-1 py-0.5">requests</code> and <code class="bg-[#30363d] text-yellow-300 rounded-md px-1 py-0.5">psutil</code> libraries. Run the following command to install them:
+                        <pre class="bg-[#010409] text-green-300 rounded-lg p-3 text-sm mt-2 overflow-x-auto"><code class="language-bash">pip install requests psutil</code></pre>
+                    </li>
+                    <li>
+                        <strong class="text-white">Run the script:</strong> Execute the simulation by running the file with the Python interpreter:
+                        <pre class="bg-[#010409] text-green-300 rounded-lg p-3 text-sm mt-2 overflow-x-auto"><code class="language-bash">python antivirus_simulation.py</code></pre>
+                    </li>
+                    <li>
+                        <strong class="text-white">Follow the on-screen instructions:</strong> When the script runs, it will display the pre-activation message. Press "C" to begin the tests.
+                    </li>
+                </ol>
+            </div>
+
+            <!-- Code Section -->
+            <h2 class="text-2xl sm:text-3xl font-semibold mb-4 text-white">Full Script (<code class="bg-[#30363d] text-yellow-300 rounded-md px-1 py-0.5">antivirus_simulation.py</code>)</h2>
+            <div class="bg-[#010409] rounded-xl border border-[#30363d] overflow-hidden">
+                <div class="bg-[#24292e] text-gray-400 text-sm px-4 py-2 flex items-center justify-between">
+                    <span>antivirus_simulation.py</span>
+                    <button onclick="copyToClipboard('code-content')" class="text-xs px-2 py-1 bg-[#30363d] rounded-md hover:bg-[#404b5a]">Copy</button>
+                </div>
+                <pre class="p-4 text-sm sm:p-6 overflow-x-auto"><code id="code-content" class="language-python">
 import os
 import shutil
 import time
@@ -20,7 +85,7 @@ logging.basicConfig(level=logging.INFO)
 logging.getLogger("requests").setLevel(logging.WARNING)
 logging.getLogger("urllib3").setLevel(logging.WARNING)
 
-# Helper functions 
+# Helper functions
 def get_random_string(length=16):
     """Generates a random string for file/key names."""
     letters = string.ascii_letters + string.digits
@@ -35,7 +100,7 @@ def run_in_thread(func, *args):
 def pre_activation_screen():
     """Displays a warning and waits for user confirmation."""
     print("------------------------------------------------------------------")
-    print("                     * Liapard *        ")
+    print("                     * Liapard * Safe Testing Environment")
     print("------------------------------------------------------------------")
     print("\nI am not responsible for any damage or harm that have been caused with this test.")
     print("All these tests are made safely and we only simulate them. Any damages caused by the script,")
@@ -1078,3 +1143,22 @@ def main_loop():
 if __name__ == "__main__":
     main_loop()
 
+</code></pre>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function copyToClipboard(elementId) {
+            var copyText = document.getElementById(elementId).textContent;
+            var tempTextarea = document.createElement("textarea");
+            tempTextarea.value = copyText;
+            document.body.appendChild(tempTextarea);
+            tempTextarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempTextarea);
+            alert("Code copied to clipboard!");
+        }
+    </script>
+</body>
+</html>
