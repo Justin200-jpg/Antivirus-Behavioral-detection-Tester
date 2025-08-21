@@ -15,12 +15,12 @@ import json
 import logging
 from datetime import datetime
 
-# Configure logging to suppress requests-related messages
+# Configure logging to suppress requestsrelated messages
 logging.basicConfig(level=logging.INFO)
 logging.getLogger("requests").setLevel(logging.WARNING)
 logging.getLogger("urllib3").setLevel(logging.WARNING)
 
-# --- Helper Functions ---
+# Helper functions 
 def get_random_string(length=16):
     """Generates a random string for file/key names."""
     letters = string.ascii_letters + string.digits
@@ -30,8 +30,25 @@ def run_in_thread(func, *args):
     """Utility to run a function in a thread and wait for it."""
     t = threading.Thread(target=func, args=args)
     t.start()
-    t.join(timeout=10) # Set a timeout to prevent indefinite hangs
+    t.join(timeout=10) # Set a timeout to prevent indefinite hangs absolutely...
 
+def pre_activation_screen():
+    """Displays a warning and waits for user confirmation."""
+    print("------------------------------------------------------------------")
+    print("                     * Liapard *        ")
+    print("------------------------------------------------------------------")
+    print("\nI am not responsible for any damage or harm that have been caused with this test.")
+    print("All these tests are made safely and we only simulate them. Any damages caused by the script,")
+    print("antivirus, and any stuff, it's your responsibility.")
+    print("\n                 Press 'C' to continue, press 'X' to exit.")
+    
+    user_input = input("\n> ").strip().lower()
+    if user_input != 'c':
+        print("Exiting simulation. Stay safe!")
+        sys.exit(0)
+    print("\nStarting simulation...")
+    time.sleep(1)
+    
 # --- The 100 Behavioral Simulation Functions ---
 
 # --- FILE SYSTEM MANIPULATION (1-20) ---
@@ -1046,6 +1063,7 @@ ALL_SAMPLES = [
 
 def main_loop():
     """Main loop that runs all 100 behavioral simulations."""
+    pre_activation_screen()
     print("Starting comprehensive behavioral simulation with 100 samples...")
     for i, func in enumerate(ALL_SAMPLES, 1):
         print(f"\n--- Sample {i} of 100: {func.__name__} ---")
@@ -1059,3 +1077,4 @@ def main_loop():
 
 if __name__ == "__main__":
     main_loop()
+
